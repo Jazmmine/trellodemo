@@ -70,7 +70,7 @@ window.addEventListener("load", function () {
 				btnTarjeta.classList.add("class","btn");
 				btnTarjeta.textContent = "Añadir";
 				formTarjeta.appendChild(btnTarjeta);
-			//	tarjetaBtn.addEventListener("click", creandoTarjeta);
+				btnTarjeta.addEventListener("click", creandoTarjeta);
 			var cerrarTarjeta = document.createElement("a");
 				formTarjeta.appendChild(cerrarTarjeta);
 				cerrarTarjeta.classList.add("btn-floating");
@@ -78,5 +78,17 @@ window.addEventListener("load", function () {
 				icocerrarTarjeta.classList.add("material-icons");
 				icocerrarTarjeta.textContent = "cancel";
 				cerrarTarjeta.appendChild(icocerrarTarjeta);
+		}
+
+		function creandoTarjeta(){
+			var divTarjeta = this.parentElement.parentElement.parentElement;
+			var tarjetaTextArea = this.parentElement.children[0];
+			var tarjetaTextAreaValor = tarjetaTextArea.value;
+				tarjetaTextArea.value = "";
+			var divTarjetaSpan = this.parentElement.parentElement;
+			var tarjeta = document.createElement("div");
+				tarjeta.textContent = tarjetaTextAreaValor;	
+				divTarjeta.appendChild(tarjeta);
+			
 		}
 });
