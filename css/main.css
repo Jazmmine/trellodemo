@@ -1,7 +1,7 @@
 *{
-	box-sizing: border-box;
 	margin: 0;
-	padding: 0;	
+	padding: 0;
+	box-sizing: border-box;	
 }
 
 body{
@@ -22,18 +22,46 @@ li > form > .input-field input[type=search] {
     padding-top: 5px;
     padding-bottom: 5px;
 }
-.hiden{
-	display: none;
-}
+
 .columna{
 	height: auto;
 	display: inline-block;
 	vertical-align: text-top;
+	margin-right: 10px;
+	margin-left: 10px;
 }
 #content-tabla{
 	white-space: nowrap;
 }
+.tabla-titulo{
+	background: rgba(0,0,0,.12);
+    cursor: pointer;
+    color: #fff;
+    height: auto;
+    min-height: 30px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 270px;
+    margin: 0 5px;
+}
 
-.bloque{
-	display: block;
+.columna{
+    color: #fff;
+    height: auto;
+    min-height: 30px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 270px;
+    margin: 0 5px;
+}
+.div-tarjeta-span{
+	background: rgba(0,0,0,.12);
+    cursor: pointer;
+    color: #fff;
+    height: auto;
+    min-height: 30px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 270px;
+    margin: 0 5px;
 }

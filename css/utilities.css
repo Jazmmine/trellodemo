@@ -1,0 +1,14 @@
+.bloque{
+	display: block;
+}
+
+.hiden{
+	display: none;
+}
+.btneliminar{
+	margin-top: 10px;
+}
+
+.mantenerencontenedor{
+	box-sizing: content-box;	
+}
