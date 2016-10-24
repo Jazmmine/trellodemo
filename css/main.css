@@ -1,0 +1,23 @@
+*{
+	margin: 0;
+	padding: 0;	
+}
+
+#logo{
+	height: 5vh;
+}
+
+#navbar{
+	background-color: #0067A3 !important;
+}
+
+body{
+	background-color: #0079BF;
+}
+
+li > form > .input-field input[type=search] {
+    display: inline-block;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
