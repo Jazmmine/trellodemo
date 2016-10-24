@@ -6,9 +6,66 @@
 	display: none;
 }
 .btneliminar{
+	margin-top: 12px;
+}
+
+.btn-style{
 	margin-top: 10px;
+    font-weight: 700;	
 }
 
 .mantenerencontenedor{
 	box-sizing: content-box;	
+}
+
+.margen-izquierda{
+	margin-left: 10px;	
+}
+
+.fondo-gris-click{
+    background-color: #E2E4E6;
+    cursor: pointer;
+    color: #4d4d4d;
+    height: auto;
+    min-height: 30px;
+    padding: 10px;
+    border-radius: 5px;	
+}
+
+::-webkit-input-placeholder {
+    /* Google Chrome y Safari */
+    color: #b3afaf;
+}
+:-moz-placeholder {
+    /* Firefox anterior a 19 */
+    color:  #b3afaf;
+}
+::-moz-placeholder {
+    /* Firefox 19 y superior */
+    color:  #b3afaf;
+}
+:-ms-input-placeholder {
+    /* Internet Explorer 10 y superior */
+    color:  #b3afaf;
+}
+.columna-click{
+	background-color: #E2E4E6;
+}
+.fondo-arriba{
+	padding-top: 10px;
+}
+.otrascolumnasclick{
+	background: rgba(0,0,0,.12);
+	height: auto;
+	display: inline-block;
+	vertical-align: text-top;
+	margin-right: 10px;
+	margin-left: 10px;
+	color: #4d4d4d;
+    height: auto;
+    min-height: 30px;
+    padding: 0 5px 5px 5px;
+    border-radius: 5px;
+    width: 290px;
+    margin: 0 5px;
 }

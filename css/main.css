@@ -29,9 +29,17 @@ li > form > .input-field input[type=search] {
 	vertical-align: text-top;
 	margin-right: 10px;
 	margin-left: 10px;
+	color: #4d4d4d;
+    height: auto;
+    min-height: 30px;
+    padding: 0 5px 5px 5px;
+    border-radius: 5px;
+    width: 290px;
+    margin: 0 5px;
 }
 #content-tabla{
 	white-space: nowrap;
+	padding-left: 10px;
 }
 .tabla-titulo{
 	background: rgba(0,0,0,.12);
@@ -45,17 +53,7 @@ li > form > .input-field input[type=search] {
     margin: 0 5px;
 }
 
-.columna{
-    color: #fff;
-    height: auto;
-    min-height: 30px;
-    padding: 10px;
-    border-radius: 5px;
-    width: 270px;
-    margin: 0 5px;
-}
 .div-tarjeta-span{
-	background: rgba(0,0,0,.12);
     cursor: pointer;
     color: #fff;
     height: auto;
@@ -65,3 +63,37 @@ li > form > .input-field input[type=search] {
     width: 270px;
     margin: 0 5px;
 }
+
+.div-tarjeta-span:hover{
+	background: rgba(0,0,0,.12);
+}
+
+#input-titulo{
+	background: rgba(0,0,0,.05);
+    border-color: #aaa;
+    box-shadow: inset 0 1px 8px rgba(0,0,0,.15);
+    margin: 0;
+    -webkit-transition: margin 85ms ease-in,background 85ms ease-in;
+    transition: margin 85ms ease-in,background 85ms ease-in;
+    box-sizing: border-box;
+    border: 1px solid #CDD2D4;
+    border-radius: 3px;
+    min-height: 34px;
+    padding: 7px;
+    color: #4d4d4d;
+    line-height: 18px;
+}
+
+.textarea{
+	overflow: hidden;
+    word-wrap: break-word;
+    height: 70px;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 3px;
+    padding-left: 6px;
+    padding-top: 8px;
+}
+
+
+
