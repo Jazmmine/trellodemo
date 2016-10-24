@@ -89,6 +89,6 @@ window.addEventListener("load", function () {
 			var tarjeta = document.createElement("div");
 				tarjeta.textContent = tarjetaTextAreaValor;	
 				divTarjeta.appendChild(tarjeta);
-			
+				divTarjeta.insertBefore(tarjeta,divTarjetaSpan);
 		}
 });
