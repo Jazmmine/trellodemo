@@ -46,7 +46,7 @@ window.addEventListener("load", function () {
 			var tarjetaSpan = document.createElement("span");
 				tarjetaSpan.textContent = "Añadir una tarjeta...";
 				divTarjetaSpan.appendChild(tarjetaSpan);
-				//tarjetaSpan.addEventListener("click",creandoFormTarjeta);
+				tarjetaSpan.addEventListener("click",creandoFormTarjeta);
 			var creandoColumna = document.createElement("div");
 				creandoColumna.classList.add("class","columna");
 				contentTabla.appendChild(creandoColumna);
@@ -54,4 +54,29 @@ window.addEventListener("load", function () {
 				creandoColumna.appendChild(hijoNuevaColumna);
 		}
 
+		function creandoFormTarjeta(){
+			var divTarjetaSpan = this.parentElement;
+			var tarjetaSpanDesaparecer = this;
+				tarjetaSpanDesaparecer.setAttribute("class","hiden"); 
+			var formTarjeta = document.createElement("form");
+				formTarjeta.setAttribute("id","formulario-tarjeta")
+				divTarjetaSpan.appendChild(formTarjeta);
+			var textAreaTarjeta = document.createElement("textarea");
+				textAreaTarjeta.setAttribute("row","5");
+				textAreaTarjeta.classList.add("bloque");
+				textAreaTarjeta.setAttribute("placeholder", "Añadir una tarjeta...");
+				formTarjeta.appendChild(textAreaTarjeta);
+			var btnTarjeta = document.createElement("a");
+				btnTarjeta.classList.add("class","btn");
+				btnTarjeta.textContent = "Añadir";
+				formTarjeta.appendChild(btnTarjeta);
+			//	tarjetaBtn.addEventListener("click", creandoTarjeta);
+			var cerrarTarjeta = document.createElement("a");
+				formTarjeta.appendChild(cerrarTarjeta);
+				cerrarTarjeta.classList.add("btn-floating");
+				icocerrarTarjeta = document.createElement("i");
+				icocerrarTarjeta.classList.add("material-icons");
+				icocerrarTarjeta.textContent = "cancel";
+				cerrarTarjeta.appendChild(icocerrarTarjeta);
+		}
 });
