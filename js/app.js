@@ -1,4 +1,6 @@
-var contadorId;
+var contadorId = 0;
+var prueba;
+console.log("version roñoso 10.52");
 window.addEventListener("load", function () {
 	var contentTabla = document.getElementById("content-tabla");
 	var contentFormularioTitulo = document.getElementById("content-formulario-titulo");
@@ -57,8 +59,12 @@ window.addEventListener("load", function () {
 				contenedorColumna.appendChild(titulo);
 			var divTarjeta = document.createElement("div");
 				contenedorColumna.appendChild(divTarjeta);
-				divTarjeta.addEventListener("dragover",arrastrarSobre);
-				divTarjeta.addEventListener("drop", soltar);
+				divTarjeta.style.border = "2px solid red";
+			var contenedorTarjetaDrag = document.createElement("div");
+				contenedorTarjetaDrag.style.border = "2px solid green";
+				divTarjeta.appendChild(contenedorTarjetaDrag);
+				contenedorTarjetaDrag.addEventListener("dragover",arrastrarSobre);
+				contenedorTarjetaDrag.addEventListener("drop", soltar);				
 			var divTarjetaSpan = document.createElement("div");	
 				divTarjeta.appendChild(divTarjetaSpan);			
 			var tarjetaSpan = document.createElement("span");
@@ -113,19 +119,27 @@ window.addEventListener("load", function () {
 
 		function creandoTarjeta(evento){
 			var idTarjetaGenerada = obtenerIdTarjeta();
-			var divTarjeta = this.parentElement.parentElement.parentElement;
+			var divTarjeta = this.parentElement.parentElement.parentElement; 
+			var contenedorTarjetaDrag = this.parentElement.parentElement.parentElement.childNodes[0];
+			prueba = this;
+			//console.log(prueba);
+			//console.log(contenedorTarjetaDrag);
 			var tarjetaTextArea = this.parentElement.children[0];
 			var tarjetaTextAreaValor = tarjetaTextArea.value;
 				tarjetaTextArea.value = "";
 			var divTarjetaSpan = this.parentElement.parentElement;
+			var divTarjetaDrag = document.createElement("div");
+				divTarjetaDrag.style.border = "2px solid pink";
+				divTarjetaDrag.setAttribute("draggable", "true");
+				divTarjetaDrag.setAttribute("id", idTarjetaGenerada + "");
+				divTarjetaDrag.addEventListener("dragstart", empiezaArrastrar);				
+				contenedorTarjetaDrag.appendChild(divTarjetaDrag);
+			console.log(contenedorTarjetaDrag);
 			var tarjeta = document.createElement("div");
-				tarjeta.classList.add("margen-izquierda");
-				tarjeta.setAttribute("draggable", "true");
-				tarjeta.setAttribute("id", idTarjetaGenerada + "");
+				tarjeta.classList.add("margen-izquierda");				
 				tarjeta.textContent = tarjetaTextAreaValor;	
-				divTarjeta.appendChild(tarjeta);
-				divTarjeta.insertBefore(tarjeta,divTarjetaSpan);
-				tarjeta.addEventListener("dragstart", empiezaArrastrar);
+				divTarjetaDrag.appendChild(tarjeta);
+				divTarjeta.insertBefore(contenedorTarjetaDrag,divTarjetaSpan);				
 				tarjetaTextArea.focus();
 		}
 
@@ -139,7 +153,8 @@ window.addEventListener("load", function () {
 
 		function soltar(e) {
 			var idArrastrado = e.dataTransfer.getData("text");
-			e.target.parentElement.appendChild(document.getElementById(idArrastrado));
+			e.target.appendChild(document.getElementById(idArrastrado));
+			//e.target.insertBefore(e.target.appendChild(document.getElementById(idArrastrado)),e.target.parentElement.childNodes[0]);
 		}
 
 }); 
