@@ -1,4 +1,4 @@
-var prueba;
+var contadorId;
 window.addEventListener("load", function () {
 	var contentTabla = document.getElementById("content-tabla");
 	var contentFormularioTitulo = document.getElementById("content-formulario-titulo");
@@ -57,6 +57,8 @@ window.addEventListener("load", function () {
 				contenedorColumna.appendChild(titulo);
 			var divTarjeta = document.createElement("div");
 				contenedorColumna.appendChild(divTarjeta);
+				divTarjeta.addEventListener("dragover",arrastrarSobre);
+				divTarjeta.addEventListener("drop", soltar);
 			var divTarjetaSpan = document.createElement("div");	
 				divTarjeta.appendChild(divTarjetaSpan);			
 			var tarjetaSpan = document.createElement("span");
@@ -110,6 +112,7 @@ window.addEventListener("load", function () {
 		}
 
 		function creandoTarjeta(evento){
+			var idTarjetaGenerada = obtenerIdTarjeta();
 			var divTarjeta = this.parentElement.parentElement.parentElement;
 			var tarjetaTextArea = this.parentElement.children[0];
 			var tarjetaTextAreaValor = tarjetaTextArea.value;
@@ -118,22 +121,30 @@ window.addEventListener("load", function () {
 			var tarjeta = document.createElement("div");
 				tarjeta.classList.add("margen-izquierda");
 				tarjeta.setAttribute("draggable", "true");
-				tarjeta.setAttribute("id", "drag")
+				tarjeta.setAttribute("id", idTarjetaGenerada + "");
 				tarjeta.textContent = tarjetaTextAreaValor;	
 				divTarjeta.appendChild(tarjeta);
 				divTarjeta.insertBefore(tarjeta,divTarjetaSpan);
-				tarjeta.addEventListener("mousedown", eventoDrop);
-			tarjetaTextArea.focus();
+				tarjeta.addEventListener("dragstart", empiezaArrastrar);
+				tarjetaTextArea.focus();
 		}
-		function eventoDrop(evento){
-			var cols = this.parentElement.parentElement.nextElementSibling;
-				cols.addEventListener("drop", soltar);
-		}
-		function soltar(evento) {
+
+		function empiezaArrastrar(e) {
+			e.dataTransfer.setData("text", this.id);
+		} 
+
+		function arrastrarSobre(e) {
 			e.preventDefault();
-			console.log( "hola" + this);
-			var idArrastrado = e.dataTransfer.getData("text");
-			console.log(idArrastrado);
-			
 		}
-});
+
+		function soltar(e) {
+			var idArrastrado = e.dataTransfer.getData("text");
+			e.target.parentElement.appendChild(document.getElementById(idArrastrado));
+		}
+
+}); 
+
+function obtenerIdTarjeta(){
+	contadorId++;
+	return contadorId;
+}
