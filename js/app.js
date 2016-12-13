@@ -59,9 +59,9 @@ window.addEventListener("load", function () {
 				contenedorColumna.appendChild(titulo);
 			var divTarjeta = document.createElement("div");
 				contenedorColumna.appendChild(divTarjeta);
-				divTarjeta.style.border = "2px solid red";
+		/*		divTarjeta.style.border = "2px solid red"; */
 			var contenedorTarjetaDrag = document.createElement("div");
-				contenedorTarjetaDrag.style.border = "2px solid green";
+	/*			contenedorTarjetaDrag.style.border = "2px solid green";  */
 				divTarjeta.appendChild(contenedorTarjetaDrag);
 				contenedorTarjetaDrag.addEventListener("dragover",arrastrarSobre);
 				contenedorTarjetaDrag.addEventListener("drop", soltar);				
@@ -129,10 +129,10 @@ window.addEventListener("load", function () {
 				tarjetaTextArea.value = "";
 			var divTarjetaSpan = this.parentElement.parentElement;
 			var divTarjetaDrag = document.createElement("div");
-				divTarjetaDrag.style.border = "2px solid pink";
+		/*		divTarjetaDrag.style.border = "2px solid pink"; */
 				divTarjetaDrag.setAttribute("draggable", "true");
 				divTarjetaDrag.setAttribute("id", idTarjetaGenerada + "");
-				divTarjetaDrag.addEventListener("dragstart", empiezaArrastrar);				
+				divTarjetaDrag.addEventListener("dragstart", empiezaArrastrar);			
 				contenedorTarjetaDrag.appendChild(divTarjetaDrag);
 			console.log(contenedorTarjetaDrag);
 			var tarjeta = document.createElement("div");
@@ -152,10 +152,13 @@ window.addEventListener("load", function () {
 		}
 
 		function soltar(e) {
+			console.log("soltar");
 			var idArrastrado = e.dataTransfer.getData("text");
-			e.target.appendChild(document.getElementById(idArrastrado));
+			var elementoArrastrado = document.getElementById(idArrastrado);
+			this.insertBefore(elementoArrastrado, this.children[0]);
 			//e.target.insertBefore(e.target.appendChild(document.getElementById(idArrastrado)),e.target.parentElement.childNodes[0]);
 		}
+
 
 }); 
 

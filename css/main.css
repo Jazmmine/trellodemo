@@ -23,6 +23,9 @@ li > form > .input-field input[type=search] {
     padding-bottom: 5px;
 }
 
+.cabecera-tabla{
+    height: 35px;
+}
 .columna{
 	height: auto;
 	display: inline-block;
